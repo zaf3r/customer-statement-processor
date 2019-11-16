@@ -1,14 +1,15 @@
 package com.zaf3r.customerstatementprocessor.model;
 
 public class CustomerStatementLineItem {
-    private int transactionReference;
+    private long transactionReference;
     private String accountNumber;
     private double startBalance;
     private double mutation;
     private double endBalance;
     private String description;
+    private boolean failedRecord;
 
-    public CustomerStatementLineItem(int transactionReference, String accountNumber, double startBalance, double mutation, double endBalance, String description) {
+    public CustomerStatementLineItem(long transactionReference, String accountNumber, double startBalance, double mutation, double endBalance, String description) {
         this.transactionReference = transactionReference;
         this.accountNumber = accountNumber;
         this.startBalance = startBalance;
@@ -17,7 +18,7 @@ public class CustomerStatementLineItem {
         this.description = description;
     }
 
-    public int getTransactionReference() {
+    public long getTransactionReference() {
         return transactionReference;
     }
 
@@ -39,5 +40,26 @@ public class CustomerStatementLineItem {
 
     public String getDescription() {
         return description;
+    }
+
+    public boolean isFailedRecord() {
+        return failedRecord;
+    }
+
+    public void setFailedRecord(boolean failedRecord) {
+        this.failedRecord = failedRecord;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerStatementLineItem{" +
+                "transactionReference=" + transactionReference +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", startBalance=" + startBalance +
+                ", mutation=" + mutation +
+                ", endBalance=" + endBalance +
+                ", description='" + description + '\'' +
+                ", failedRecord=" + failedRecord +
+                '}';
     }
 }
