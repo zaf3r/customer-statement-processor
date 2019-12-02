@@ -1,65 +1,44 @@
 package com.zaf3r.customerstatementprocessor.model;
 
+
+import com.opencsv.bean.CsvBindByName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import javax.xml.bind.annotation.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@XmlRootElement(name = "record")
+@XmlAccessorType(XmlAccessType.FIELD)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class CustomerStatementLineItem {
+
+    @XmlAttribute
+    @CsvBindByName(column = "Reference")
     private long transactionReference;
+
+
+    @XmlElement(name = "accountNumber")
+    @CsvBindByName(column = "Account Number")
     private String accountNumber;
+
+    @XmlElement(name = "startBalance")
+    @CsvBindByName(column = "Start Balance")
     private double startBalance;
+
+    @XmlElement(name = "mutation")
+    @CsvBindByName(column = "Mutation")
     private double mutation;
+
+    @XmlElement(name = "endBalance")
+    @CsvBindByName(column = "End Balance")
     private double endBalance;
+
+    @XmlElement(name = "description")
+    @CsvBindByName(column = "Description")
     private String description;
-    private boolean failedRecord;
-
-    public CustomerStatementLineItem(long transactionReference, String accountNumber, double startBalance, double mutation, double endBalance, String description) {
-        this.transactionReference = transactionReference;
-        this.accountNumber = accountNumber;
-        this.startBalance = startBalance;
-        this.mutation = mutation;
-        this.endBalance = endBalance;
-        this.description = description;
-    }
-
-    public long getTransactionReference() {
-        return transactionReference;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public double getStartBalance() {
-        return startBalance;
-    }
-
-    public double getMutation() {
-        return mutation;
-    }
-
-    public double getEndBalance() {
-        return endBalance;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public boolean isFailedRecord() {
-        return failedRecord;
-    }
-
-    public void setFailedRecord(boolean failedRecord) {
-        this.failedRecord = failedRecord;
-    }
-
-    @Override
-    public String toString() {
-        return "CustomerStatementLineItem{" +
-                "transactionReference=" + transactionReference +
-                ", accountNumber='" + accountNumber + '\'' +
-                ", startBalance=" + startBalance +
-                ", mutation=" + mutation +
-                ", endBalance=" + endBalance +
-                ", description='" + description + '\'' +
-                ", failedRecord=" + failedRecord +
-                '}';
-    }
 }
