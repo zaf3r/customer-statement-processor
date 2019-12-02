@@ -2,7 +2,7 @@ package com.zaf3r.customerstatementprocessor.processor;
 
 import com.zaf3r.customerstatementprocessor.api.CustomerStatementProcessor;
 import com.zaf3r.customerstatementprocessor.model.CustomerStatementLineItem;
-import org.w3c.dom.DocumentType;
+import com.zaf3r.customerstatementprocessor.util.DocumentType;
 
 import java.util.List;
 
@@ -15,6 +15,6 @@ public class CSVCustomerStatementProcessor implements CustomerStatementProcessor
 
     @Override
     public DocumentType getProcessorFileType() {
-        return null;
+        return DocumentType.XML;
     }
 }

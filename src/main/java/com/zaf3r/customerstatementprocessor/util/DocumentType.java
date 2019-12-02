@@ -7,10 +7,7 @@ public enum DocumentType {
     XML("XML"),
     UNKNOWN("UNKNOWN");
 
-    private String fileType;
-
     private DocumentType(String fileType) {
-        this.fileType = fileType;
     }
 
     public static DocumentType findTypeByString(String type) {

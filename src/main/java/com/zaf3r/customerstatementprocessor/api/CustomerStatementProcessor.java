@@ -1,7 +1,7 @@
 package com.zaf3r.customerstatementprocessor.api;
 
 import com.zaf3r.customerstatementprocessor.model.CustomerStatementLineItem;
-import org.w3c.dom.DocumentType;
+import com.zaf3r.customerstatementprocessor.util.DocumentType;
 
 import java.util.List;
 
